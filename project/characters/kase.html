@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Kase</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+
+  <link rel="icon" sizes="96x96" href="https://publish-01.obsidian.md/access/f786db9fac45774fa4f0d8112e232d67/favicon-96x96.png">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
+  <script src="https://pixijs.download/v7.2.4/pixi.js"></script>
+
+
+  <link rel="stylesheet" href="../../styles/obsidian-styles.css">
+  <link rel="stylesheet" href="../../styles/plugin-styles.css">
+  <link rel="stylesheet" href="../../styles/theme.css">
+  <link rel="stylesheet" href="../../styles/snippets.css">
+
+  <style> </style>
+  <style> </style>
+
+
+  <script id="relative-paths">
+    let rootPath = "../..";
+    let mediaPath = "../../media";
+    let jsPath = "../../scripts";
+    let cssPath = "../../styles";
+  </script>
+
+  <!-- Graph View Data -->
+  <script>
+    let nodes = {
+      "nodeCount": 101,
+      "linkCount": 307,
+      "radii": [10, 8.03881257306834, 7.702698214475502, 7.702698214475502, 7.614518014666808, 7.050563290466574, 7.050563290466574, 6.950758582208524, 6.84929322988628, 6.74616723349984, 6.641380593049208, 6.641380593049208, 6.426825379955362, 6.317056807312148, 6.20562759060474, 6.20562759060474, 6.20562759060474, 6.092537729833138, 6.092537729833138, 5.977787224997343, 5.977787224997343, 5.977787224997343, 5.977787224997343, 5.861376076097353, 5.861376076097353, 5.861376076097353, 5.74330428313317, 5.74330428313317, 5.74330428313317, 5.74330428313317, 5.74330428313317, 5.623571846104793, 5.623571846104793, 5.623571846104793, 5.623571846104793, 5.623571846104793, 5.623571846104793, 5.502178765012222, 5.502178765012222, 5.502178765012222, 5.502178765012222, 5.502178765012222, 5.502178765012222, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.379125039855458, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.254410670634498, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5.128035657349347, 5, 5, 5],
+      "labels": ["PROJECT_Index", "Apfel", "Emilio", "Blume", "Mantana", "Ceres", "Alchemy", "Kase", "ACT 1 DRAFT", "Sinesperia", "Notes 2023-05-05", "Octagram necklace", "Sinesperians", "PROTECTION", "ACT 1", "World Rules", "Ceresians", "Scene - Good ending", "Parmesan", "Paradox clock", "Mantana's ring", "Blume's death", "Battle system", "Timeline Apfel", "POWER", "The Player", "Akinomori", "Timeline Alpha", "Chaotic timeframe", "Emilio's Accident", "Alpha Apfel", "Herbstwald", "Ceres moon", "Scene - Apfel meets Blume", "STONE", "REINCARNATION", "Ili", "Timeline Blume", "Scene - Blume's death", "Scene - Bad ending", "Scene - Apfel against Mantana", "Notes 2023-01-30", "Blumes Flower", "Water", "Fire", "Earth", "Air", "Notes 2023-02-24", "End of Ceresian world", "Paradox entity", "Risotto", "Pirodias", "Marina", "Aurora", "Abandoned Train Station", "Abandoned Last Train Station", "Timeline Sinesperian", "Scene - Parmesan's minigame", "Salt", "Sulfur", "Spirit", "Octagram", "Mercury", "Notes Things X would say", "Notes Plotholes", "Notes 2023-05-07", "Purple Flower", "Apfel's diary", "The Impact", "Game Over", "Art - Art style", "Timeline graph", "Scene - Back in time", "Scene - 00AA - Template", "Notes Symbology", "Notes Potential game names", "Notes Mechanics", "Notes Bugs", "Notes 2023-04-29", "Notes 2023-04-14", "Notes 2023-02-14", "Notes 2023-02-10", "Notes 2023-01-14", "Playlists", "How to make music!", "Kickstarter", "Budget", "Cola caps", "Camera", "End of Sinesperian world", "Wishes", "Vincent", "Pang", "Lanitas", "Borzois bros", "Art - Cover", "Art - Speaking Portraits", "Art - Animation style", "Storyboard - Apfel against Mantana", "Test Canvas", "Battle system logic"],
+      "paths": ["project/project_index.html", "project/characters/apfel.html", "project/characters/emilio.html", "project/characters/blume.html", "project/characters/mantana.html", "project/universe/ceres.html", "project/rules/alchemy/alchemy.html", "project/characters/kase.html", "project/story/acts/act-1-draft.html", "project/universe/sinesperia.html", "project/notes/daily-notes/notes-2023-05-05.html", "project/items/octagram-necklace.html", "project/races/sinesperians.html", "project/definitions/wishes/protection.html", "project/story/acts/act-1.html", "project/rules/world-rules.html", "project/races/ceresians.html", "project/scenes/scene---good-ending.html", "project/characters/parmesan.html", "project/items/paradox-clock.html", "project/items/mantana's-ring.html", "project/events/blume's-death.html", "project/battle-system/battle-system.html", "project/timelines/timeline-apfel.html", "project/definitions/wishes/power.html", "project/definitions/the-player.html", "project/universe/places-in-ceres/akinomori.html", "project/timelines/timeline-alpha.html", "project/timelines/chaotic-timeframe.html", "project/events/emilio's-accident.html", "project/characters/alpha-apfel.html", "project/universe/places-in-ceres/herbstwald.html", "project/universe/ceres-moon.html", "project/scenes/scene---apfel-meets-blume.html", "project/definitions/wishes/stone.html", "project/definitions/wishes/reincarnation.html", "project/characters/ili.html", "project/timelines/timeline-blume.html", "project/scenes/scene---blume's-death.html", "project/scenes/scene---bad-ending.html", "project/scenes/scene---apfel-against-mantana.html", "project/notes/daily-notes/notes-2023-01-30.html", "project/items/blumes-flower.html", "project/rules/alchemy/water.html", "project/rules/alchemy/fire.html", "project/rules/alchemy/earth.html", "project/rules/alchemy/air.html", "project/notes/daily-notes/notes-2023-02-24.html", "project/events/end-of-ceresian-world.html", "project/definitions/paradox-entity.html", "project/characters/npcs/risotto.html", "project/characters/npcs/pirodias.html", "project/characters/npcs/marina.html", "project/characters/npcs/aurora.html", "project/universe/places-in-ceres/abandoned-train-station.html", "project/universe/places-in-ceres/abandoned-last-train-station.html", "project/timelines/timeline-sinesperian.html", "project/scenes/scene---parmesan's-minigame.html", "project/rules/alchemy/salt.html", "project/rules/alchemy/sulfur.html", "project/rules/alchemy/spirit.html", "project/rules/alchemy/octagram.html", "project/rules/alchemy/mercury.html", "project/notes/miscelaneous-notes/notes-things-x-would-say.html", "project/notes/miscelaneous-notes/notes-plotholes.html", "project/notes/daily-notes/notes-2023-05-07.html", "project/items/purple-flower.html", "project/items/apfel's-diary.html", "project/events/the-impact.html", "project/definitions/game-over.html", "project/art/art---art-style.html", "project/timelines/timeline-graph.html", "project/scenes/scene---back-in-time.html", "project/scenes/scene---00aa---template.html", "project/notes/miscelaneous-notes/notes-symbology.html", "project/notes/miscelaneous-notes/notes-potential-game-names.html", "project/notes/miscelaneous-notes/notes-mechanics.html", "project/notes/miscelaneous-notes/notes-bugs.html", "project/notes/daily-notes/notes-2023-04-29.html", "project/notes/daily-notes/notes-2023-04-14.html", "project/notes/daily-notes/notes-2023-02-14.html", "project/notes/daily-notes/notes-2023-02-10.html", "project/notes/daily-notes/notes-2023-01-14.html", "project/music/playlists.html", "project/music/how-to-make-music!.html", "project/money/kickstarter.html", "project/money/budget.html", "project/items/cola-caps.html", "project/items/camera.html", "project/events/end-of-sinesperian-world.html", "project/definitions/wishes/wishes.html", "project/characters/npcs/vincent.html", "project/characters/npcs/pang.html", "project/characters/npcs/lanitas.html", "project/characters/npcs/borzois-bros.html", "project/art/art---cover.html", "project/art/art---speaking-portraits.html", "project/art/art---animation-style.html", "project/scenes/storyboards/storyboard---apfel-against-mantana.html", "project/canvases/test-canvas.html", "project/battle-system/battle-system-logic.html"],
+      "linkSources": [70, 22, 22, 22, 22, 22, 22, 22, 30, 30, 30, 1, 1, 1, 1, 1, 3, 3, 3, 2, 2, 2, 2, 36, 36, 7, 7, 7, 7, 4, 18, 24, 24, 24, 13, 13, 13, 13, 13, 13, 13, 13, 13, 35, 35, 35, 34, 34, 34, 21, 21, 21, 21, 29, 29, 29, 29, 42, 42, 20, 20, 20, 20, 11, 11, 11, 11, 11, 11, 19, 19, 19, 19, 41, 41, 41, 47, 47, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 65, 64, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 12, 12, 12, 12, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 15, 15, 15, 15, 15, 15, 15, 15, 15, 40, 40, 33, 33, 33, 33, 39, 39, 39, 38, 38, 38, 17, 17, 17, 17, 17, 17, 17, 57, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 14, 14, 14, 14, 14, 14, 14, 14, 28, 28, 27, 27, 27, 27, 23, 23, 23, 37, 37, 56, 32, 32, 32, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 26, 31, 31, 31, 31, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+      "linkTargets": [1, 1, 7, 4, 50, 18, 3, 20, 1, 2, 27, 7, 3, 2, 30, 4, 2, 11, 4, 1, 4, 11, 3, 2, 18, 1, 3, 7, 2, 12, 36, 24, 4, 20, 3, 13, 7, 1, 2, 42, 32, 4, 26, 2, 35, 11, 7, 4, 20, 3, 2, 11, 4, 2, 1, 25, 19, 3, 1, 4, 7, 34, 24, 4, 2, 3, 1, 49, 19, 2, 1, 49, 11, 3, 25, 1, 1, 4, 4, 12, 16, 1, 5, 3, 7, 18, 36, 23, 25, 2, 9, 18, 17, 18, 55, 54, 8, 14, 46, 26, 6, 30, 67, 1, 97, 70, 95, 96, 53, 22, 21, 3, 42, 94, 86, 88, 32, 5, 16, 28, 87, 45, 29, 2, 48, 89, 44, 69, 31, 84, 36, 7, 85, 93, 20, 4, 52, 62, 82, 41, 81, 80, 47, 79, 78, 10, 65, 77, 76, 64, 75, 74, 63, 11, 61, 92, 19, 49, 18, 51, 83, 24, 13, 66, 35, 50, 58, 73, 40, 33, 72, 39, 38, 17, 57, 9, 12, 60, 34, 59, 68, 25, 27, 23, 37, 71, 56, 91, 43, 90, 15, 5, 1, 3, 2, 5, 9, 16, 4, 12, 5, 16, 4, 51, 53, 52, 6, 45, 44, 46, 43, 2, 23, 28, 11, 19, 1, 3, 24, 23, 7, 12, 25, 1, 4, 1, 3, 7, 67, 40, 1, 4, 2, 4, 3, 30, 3, 2, 7, 18, 4, 1, 18, 14, 2, 1, 7, 26, 50, 25, 54, 5, 3, 6, 11, 55, 66, 69, 3, 4, 25, 61, 1, 2, 7, 26, 29, 21, 37, 1, 48, 28, 3, 28, 21, 16, 21, 12, 5, 1, 4, 44, 43, 45, 46, 59, 62, 58, 60, 12, 4, 3, 3, 2, 26, 48, 9, 12, 16, 5, 68, 53, 52, 51, 4, 2, 3]
+    };
+    let attractionForce = 50;
+    let linkLength = 10;
+    let repulsionForce = 60;
+    let centralForce = 20;
+    let edgePruning = 100;
+  </script>
+
+  <script type="module" src="../../scripts/graph_view.js"></script>
+
+  <script src="../../scripts/graph_wasm.js"></script>
+
+  <script src="../../scripts/tinycolor.js"></script>
+
+  <script src="../../scripts/webpage.js"></script>
+
+</head>
+
+<body class="theme-dark mod-windows is-frameless is-hidden-frameless obsidian-app show-inline-title show-view-header is-maximized minimal-theme minimal-dracula-dark minimal-default-light colorful-headings colorful-frame links-int-on links-ext-on full-width-media minimal-folding minimal-readable minimal-light minimal-dark chart-default-width table-default-width img-default-width iframe-default-width map-default-width" style="--zoom-factor:1; --font-text-size:15px; --line-width:50em; --line-width-adaptive:50em; --file-line-width:50em;">
+  <div class="flex-container">
+    <div id="sidebar" class="sidebar-left">
+      <div class="sidebar-content">
+        <div><label class="theme-toggle" for="theme_toggle"><input class="toggle__input" type="checkbox" id="theme_toggle">
+            <div class="toggle__fill"></div>
+          </label></div>
+      </div>
+    </div>
+    <div class="center-content">
+      <div class="markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings show-indentation-guide allow-fold-lists" style="tab-size: 4;">
+        <div>
+          <h1 id="Kase">
+            <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                <path d="M3 8L12 17L21 8"></path>
+              </svg></div>Kase
+          </h1>
+        </div>
+        <div class="markdown-preview-sizer markdown-preview-section" style="padding: unset; width: unset; height: unset; margin: unset; max-width: unset; min-height: unset;">
+          <div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div>
+          <div class="mod-header"></div>
+          <div>
+            <p>Tags: <a href="#ceresian" class="tag" target="_blank" rel="noopener">#ceresian</a></p>
+          </div>
+          <div>
+            <h3 data-heading="Basic Info:" id="Basic_Info:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Basic Info:
+            </h3>
+          </div>
+          <div>
+            <pre><code>Full name: Kase (Also known as Munchie in Blume's timeframe)
+Gender: Male (he/him)
+Age: ??????
+Height: 0.25 m
+Likes: Cheese, piercings
+Dislikes: Time travel novels
+Birthday: Paradox entity
+Birthplace: Paradox entity
+Race: Ceresians
+Dreams: Taking good care of Apfel
+Fears: Losing Apfel
+Notes: His left ear (right for you) has a scar from when he was there with Blume when Mantana slew her and got in the crossfire, the piercing he has on his right ear is a stolen ring from Mantana. Also, you know that animation excersise where you have to make a flour bag walk? Well, he kinda walks like that.
+Laugh: “IDK YET, something mouse-sounding”
+</code><button class="copy-code-button">Copy</button></pre>
+          </div>
+          <div>
+            <h3 data-heading="Speak Quirk:" id="Speak_Quirk:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Speak Quirk:
+            </h3>
+          </div>
+          <div>
+            <p>(Always lowercase.)</p>
+          </div>
+          <div>
+            <blockquote>
+              <p>"hey apfel do you really think this is a good idea?"<br>
+                "i prefer going around the forest, seems safer."</p>
+            </blockquote>
+          </div>
+          <div>
+            <h3 data-heading="Detailed Info:" id="Detailed_Info:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Detailed Info:
+            </h3>
+          </div>
+          <div>
+            <p>Kase is the mouse that has been taking care of <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> since she was born, he’s straight forward, serious and kind of lazy, he’s always traveling inside Apfel’s hair.<br>
+              He decided that when <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> turned 18 years old he would help her get to the top of the mountains.</p>
+          </div>
+          <div>
+            <p>The mouse <a data-href="Blume" href="blume.html" class="internal-link" target="_self" rel="noopener">Blume</a> has is <a data-href="Kase" href="kase.html" class="internal-link" target="_self" rel="noopener">Kase</a>, even though she named him Munchie. <a data-href="Kase" href="kase.html" class="internal-link" target="_self" rel="noopener">Kase</a> was present the day <a data-href="Blume" href="blume.html" class="internal-link" target="_self" rel="noopener">Blume</a> was slain so he could survive the end of the world to meet <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> in the future, this is the outcome of <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> failing the mission of stopping <a data-href="Emilio" href="emilio.html" class="internal-link" target="_self" rel="noopener">Emilio</a> back in time, if <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> is successful, <a data-href="Kase" href="kase.html" class="internal-link" target="_self" rel="noopener">Kase</a> will live with <a data-href="Blume" href="blume.html" class="internal-link" target="_self" rel="noopener">Blume</a> in the timeline where the world is saved.</p>
+          </div>
+          <div>
+            <p>That's why <a data-href="Kase" href="kase.html" class="internal-link" target="_self" rel="noopener">Kase</a> usually wants to delay <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a>'s adventure, he's scared of losing her so he's always trying to stop her, he wants to live in this timeline, he doesn't want to see <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> die again, that's why he always kept a secret all of this, because he knows that <a data-href="Apfel" href="apfel.html" class="internal-link" target="_self" rel="noopener">Apfel</a> is a curious girl and she would be even more interested in all of this.</p>
+          </div>
+          <div>
+            <p><em>The designs under here have the scar like if he bit that himself, it should look more like a slew scar</em></p>
+          </div>
+          <div>
+            <h3 data-heading="Gallery:" id="Gallery:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Gallery:
+            </h3>
+          </div>
+          <div>
+            <p><span alt="Pasted image 20230417184001.png" src="Pasted image 20230417184001.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20230417184001.png" src="..\attachments\pasted-image-20230417184001.png"></span></p>
+          </div>
+          <div>
+            <h3 data-heading="Music:" id="Music:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Music:
+            </h3>
+          </div>
+          <div>
+            <p>x</p>
+          </div>
+          <div>
+            <h3 data-heading="Music References:" id="Music_References:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Music References:
+            </h3>
+          </div>
+          <div>
+            <p>x</p>
+          </div>
+          <div>
+            <h3 data-heading="Inspirations:" id="Inspirations:">
+              <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div>Inspirations:
+            </h3>
+          </div>
+          <div>
+            <p>Jiji because Kase is basically Jiji but a mouse.</p>
+          </div>
+          <div>
+            <p><span alt="Pasted image 20230413161745.png" src="Pasted image 20230413161745.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20230413161745.png" src="..\attachments\pasted-image-20230413161745.png"></span></p>
+          </div>
+          <div class="mod-footer"></div>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar" class="sidebar-right">
+      <div class="sidebar-content">
+        <h6 style="margin: 1em 1em 1em 12px;">Interactive Graph</h6>
+        <div class="graph-view-placeholder">
+          <div class="graph-view-container">
+            <div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-arrow-up-right">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></div>
+            <canvas id="graph-canvas" width="512px" height="512px"></canvas>
+          </div>
+        </div>
+        <div class="outline-container" data-size="0">
+          <div class="outline-header">
+            <h6 style="margin: 1em 1em 1em 0px;">Table of Contents</h6><button class="clickable-icon collapse-all"><iconify-icon icon="ph:arrows-in-line-horizontal-bold" width="18px" height="18px" rotate="90deg" color="currentColor"></iconify-icon></button>
+          </div>
+          <div class="outline-item" data-size="1"><a class="outline-item-contents internal-link" href="#Kase">
+              <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                  <path d="M3 8L12 17L21 8"></path>
+                </svg></div><span class="outline-item-title">Kase</span>
+            </a>
+            <div class="outline-item-children">
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Basic_Info:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Basic Info:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Speak_Quirk:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Speak Quirk:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Detailed_Info:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Detailed Info:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Gallery:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Gallery:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Music:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Music:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Music_References:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Music References:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+              <div class="outline-item" data-size="3"><a class="outline-item-contents internal-link" href="#Inspirations:">
+                  <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                      <path d="M3 8L12 17L21 8"></path>
+                    </svg></div><span class="outline-item-title">Inspirations:</span>
+                </a>
+                <div class="outline-item-children"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
