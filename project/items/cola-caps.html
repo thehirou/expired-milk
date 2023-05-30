@@ -4,83 +4,716 @@
 <head>
 
   <title>Cola caps</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta charset="UTF-8">
+  <base href="../../">
+  <meta id="root-path" root-path="../../">
 
   <link rel="icon" sizes="96x96" href="https://publish-01.obsidian.md/access/f786db9fac45774fa4f0d8112e232d67/favicon-96x96.png">
-
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+  <meta charset="UTF-8">
   <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
-  <script src="https://pixijs.download/v7.2.4/pixi.js"></script>
 
-
-  <link rel="stylesheet" href="../../styles/obsidian-styles.css">
-  <link rel="stylesheet" href="../../styles/plugin-styles.css">
-  <link rel="stylesheet" href="../../styles/theme.css">
-  <link rel="stylesheet" href="../../styles/snippets.css">
-
-  <style> </style>
+  <link rel="stylesheet" href="lib/styles/obsidian-styles.css">
+  <link rel="stylesheet" href="lib/styles/theme.css">
+  <link rel="stylesheet" href="lib/styles/plugin-styles.css">
+  <link rel="stylesheet" href="lib/styles/snippets.css">
   <style> </style>
 
 
-  <script id="relative-paths">
-    let rootPath = "../..";
-    let mediaPath = "../../media";
-    let jsPath = "../../scripts";
-    let cssPath = "../../styles";
-  </script>
-
-  <script src="../../scripts/webpage.js"></script>
+  <script src="lib/scripts/webpage.js"></script>
 
 </head>
 
-<body class="theme-dark mod-windows is-frameless is-hidden-frameless obsidian-app show-inline-title show-view-header is-maximized minimal-theme minimal-dracula-dark minimal-default-light colorful-headings colorful-frame links-int-on links-ext-on full-width-media minimal-folding minimal-readable minimal-light minimal-dark chart-default-width table-default-width img-default-width iframe-default-width map-default-width" style="--zoom-factor:1; --font-text-size:15px; --line-width:50em; --line-width-adaptive:50em; --file-line-width:50em;">
-  <div class="flex-container">
-    <div id="sidebar" class="sidebar-left">
+<body class="theme-dark mod-windows is-frameless is-hidden-frameless obsidian-app show-inline-title show-view-header is-maximized minimal-theme minimal-dracula-dark minimal-default-light colorful-headings colorful-frame links-int-on links-ext-on full-width-media minimal-folding minimal-readable minimal-light minimal-dark chart-default-width table-default-width img-default-width iframe-default-width map-default-width" style="--zoom-factor:1; --font-text-size:15px; --line-width:50em; --line-width-adaptive:50em; --file-line-width:50em; --content-width:500em; --sidebar-width:25em; --collapse-arrow-size:0.4em; --tree-horizontal-spacing:1em; --tree-vertical-spacing:0.5em; --sidebar-margin:12px;">
+  <div class="webpage-container">
+    <div class="sidebar-left sidebar">
       <div class="sidebar-content">
-        <div><label class="theme-toggle" for="theme_toggle"><input class="toggle__input" type="checkbox" id="theme_toggle">
-            <div class="toggle__fill"></div>
+        <div><label class="theme-toggle-container" for="theme_toggle"><input class="theme-toggle-input" type="checkbox" id="theme_toggle">
+            <div class="toggle-background"></div>
           </label></div>
+        <div class="tree-container file-tree mod-nav-indicator" data-depth="0">
+          <div class="tree-header"><span class="sidebar-section-header">Apfel Project</span><button class="clickable-icon collapse-tree-button is-collapsed"><iconify-icon icon="ph:arrows-in-line-horizontal-bold" width="18px" height="18px" rotate="90deg" color="currentColor"></iconify-icon></button></div>
+          <div class="tree-scroll-area">
+            <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="1">
+              <div class="tree-item-contents">
+                <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                    <path d="M3 8L12 17L21 8"></path>
+                  </svg></div><a class="tree-item-link" href="project"><span class="tree-item-title">PROJECT</span></a>
+              </div>
+              <div class="tree-item-children">
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/00attachments"><span class="tree-item-title">00Attachments</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/00attachments/attachments.html"><span class="tree-item-title">Attachments</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/art"><span class="tree-item-title">Art</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/art/art-animation-style.html"><span class="tree-item-title">Art - Animation style</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/art/art-art-style.html"><span class="tree-item-title">Art - Art style</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/art/art-cover.html"><span class="tree-item-title">Art - Cover</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/art/art-speaking-portraits.html"><span class="tree-item-title">Art - Speaking Portraits</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/battle-system"><span class="tree-item-title">Battle system</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/battle-system/battle-system.html"><span class="tree-item-title">Battle system</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/characters"><span class="tree-item-title">Characters</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/characters/npcs"><span class="tree-item-title">NPCs</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/aurora.html"><span class="tree-item-title">Aurora</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/borzois-bros.html"><span class="tree-item-title">Borzois bros</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/lanitas.html"><span class="tree-item-title">Lanitas</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/marina.html"><span class="tree-item-title">Marina</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/pang.html"><span class="tree-item-title">Pang</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/pirodias.html"><span class="tree-item-title">Pirodias</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/risotto.html"><span class="tree-item-title">Risotto</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/npcs/vincent.html"><span class="tree-item-title">Vincent</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/alpha-apfel.html"><span class="tree-item-title">Alpha Apfel</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/apfel.html"><span class="tree-item-title">Apfel</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/blume.html"><span class="tree-item-title">Blume</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/emilio.html"><span class="tree-item-title">Emilio</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/ili.html"><span class="tree-item-title">Ili</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/kase.html"><span class="tree-item-title">Kase</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/mantana.html"><span class="tree-item-title">Mantana</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/characters/parmesan.html"><span class="tree-item-title">Parmesan</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/definitions"><span class="tree-item-title">Definitions</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/definitions/wishes"><span class="tree-item-title">Wishes</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/wishes/power.html"><span class="tree-item-title">POWER</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/wishes/protection.html"><span class="tree-item-title">PROTECTION</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/wishes/reincarnation.html"><span class="tree-item-title">REINCARNATION</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/wishes/stone.html"><span class="tree-item-title">STONE</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/wishes/wishes.html"><span class="tree-item-title">Wishes</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/game-over.html"><span class="tree-item-title">Game Over</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/paradox-entity.html"><span class="tree-item-title">Paradox entity</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/definitions/the-player.html"><span class="tree-item-title">The Player</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/dialogue"><span class="tree-item-title">Dialogue</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/dialogue/proofreader's-work.html"><span class="tree-item-title">Proofreader's work</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/events"><span class="tree-item-title">Events</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/events/blume's-death.html"><span class="tree-item-title">Blume's death</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/events/emilio's-accident.html"><span class="tree-item-title">Emilio's Accident</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/events/end-of-ceresian-world.html"><span class="tree-item-title">End of Ceresian world</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/events/end-of-sinesperian-world.html"><span class="tree-item-title">End of Sinesperian world</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/events/the-impact.html"><span class="tree-item-title">The Impact</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/items"><span class="tree-item-title">Items</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/alchemist-companion.html"><span class="tree-item-title">Alchemist Companion</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/apfel's-diary.html"><span class="tree-item-title">Apfel's diary</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/blumes-flower.html"><span class="tree-item-title">Blumes Flower</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/camera.html"><span class="tree-item-title">Camera</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/cola-caps.html"><span class="tree-item-title">Cola caps</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/mantana's-ring.html"><span class="tree-item-title">Mantana's ring</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/octagram-necklace.html"><span class="tree-item-title">Octagram necklace</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/paradox-clock.html"><span class="tree-item-title">Paradox clock</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/items/purple-flower.html"><span class="tree-item-title">Purple Flower</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/money"><span class="tree-item-title">Money</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/money/budget.html"><span class="tree-item-title">Budget</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/money/kickstarter.html"><span class="tree-item-title">Kickstarter</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/music"><span class="tree-item-title">Music</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/music/how-to-make-music!.html"><span class="tree-item-title">How to make music!</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/music/playlists.html"><span class="tree-item-title">Playlists</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/notes"><span class="tree-item-title">Notes</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/notes/daily-notes"><span class="tree-item-title">Daily notes</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-01-14.html"><span class="tree-item-title">Notes 2023-01-14</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-01-30.html"><span class="tree-item-title">Notes 2023-01-30</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-02-10.html"><span class="tree-item-title">Notes 2023-02-10</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-02-14.html"><span class="tree-item-title">Notes 2023-02-14</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-02-24.html"><span class="tree-item-title">Notes 2023-02-24</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-04-14.html"><span class="tree-item-title">Notes 2023-04-14</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-04-29.html"><span class="tree-item-title">Notes 2023-04-29</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-05-05.html"><span class="tree-item-title">Notes 2023-05-05</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-05-07.html"><span class="tree-item-title">Notes 2023-05-07</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-05-12.html"><span class="tree-item-title">Notes 2023-05-12</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-05-17.html"><span class="tree-item-title">Notes 2023-05-17</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/daily-notes/notes-2023-05-21.html"><span class="tree-item-title">Notes 2023-05-21</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/notes/miscelaneous-notes"><span class="tree-item-title">Miscelaneous Notes</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-bugs.html"><span class="tree-item-title">Notes Bugs</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-mechanics.html"><span class="tree-item-title">Notes Mechanics</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-plotholes.html"><span class="tree-item-title">Notes Plotholes</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-potential-game-names.html"><span class="tree-item-title">Notes Potential game names</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-symbology.html"><span class="tree-item-title">Notes Symbology</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/notes/miscelaneous-notes/notes-things-x-would-say.html"><span class="tree-item-title">Notes Things X would say</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/races"><span class="tree-item-title">Races</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/races/ceresians.html"><span class="tree-item-title">Ceresians</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/races/sinesperians.html"><span class="tree-item-title">Sinesperians</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/rules"><span class="tree-item-title">Rules</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/rules/alchemy"><span class="tree-item-title">Alchemy</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/air.html"><span class="tree-item-title">Air</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/alchemy.html"><span class="tree-item-title">Alchemy</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/earth.html"><span class="tree-item-title">Earth</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/fire.html"><span class="tree-item-title">Fire</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/mercury.html"><span class="tree-item-title">Mercury</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/octagram.html"><span class="tree-item-title">Octagram</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/salt.html"><span class="tree-item-title">Salt</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/spirit.html"><span class="tree-item-title">Spirit</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/sulfur.html"><span class="tree-item-title">Sulfur</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/alchemy/water.html"><span class="tree-item-title">Water</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/rules/world-rules.html"><span class="tree-item-title">World Rules</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/scenes"><span class="tree-item-title">Scenes</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-00aa-template.html"><span class="tree-item-title">Scene - 00AA - Template</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-apfel-against-mantana.html"><span class="tree-item-title">Scene - Apfel against Mantana</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-apfel-meets-blume.html"><span class="tree-item-title">Scene - Apfel meets Blume</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-back-in-time.html"><span class="tree-item-title">Scene - Back in time</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-bad-ending.html"><span class="tree-item-title">Scene - Bad ending</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-blume's-death.html"><span class="tree-item-title">Scene - Blume's death</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-good-ending.html"><span class="tree-item-title">Scene - Good ending</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-intro.html"><span class="tree-item-title">Scene - Intro</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/scenes/scene-parmesan's-minigame.html"><span class="tree-item-title">Scene - Parmesan's minigame</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/story"><span class="tree-item-title">Story</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/story/acts"><span class="tree-item-title">Acts</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/story/acts/act-1.html"><span class="tree-item-title">ACT 1</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/story/acts/act-1-draft.html"><span class="tree-item-title">ACT 1 DRAFT</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/story/inspiration.html"><span class="tree-item-title">Inspiration</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/story/lore.html"><span class="tree-item-title">Lore</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/timelines"><span class="tree-item-title">Timelines</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/chaotic-timeframe.html"><span class="tree-item-title">Chaotic timeframe</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/timeline-alpha.html"><span class="tree-item-title">Timeline Alpha</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/timeline-apfel.html"><span class="tree-item-title">Timeline Apfel</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/timeline-blume.html"><span class="tree-item-title">Timeline Blume</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/timeline-graph.html"><span class="tree-item-title">Timeline graph</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/timelines/timeline-sinesperian.html"><span class="tree-item-title">Timeline Sinesperian</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="2">
+                  <div class="tree-item-contents">
+                    <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                        <path d="M3 8L12 17L21 8"></path>
+                      </svg></div><a class="tree-item-link" href="project/universe"><span class="tree-item-title">Universe</span></a>
+                  </div>
+                  <div class="tree-item-children">
+                    <div class="tree-item mod-tree-folder mod-collapsible is-collapsed" data-depth="3">
+                      <div class="tree-item-contents">
+                        <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
+                            <path d="M3 8L12 17L21 8"></path>
+                          </svg></div><a class="tree-item-link" href="project/universe/places-in-ceres"><span class="tree-item-title">Places in Ceres</span></a>
+                      </div>
+                      <div class="tree-item-children">
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/places-in-ceres/abandoned-last-train-station.html"><span class="tree-item-title">Abandoned Last Train Station</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/places-in-ceres/abandoned-train-station.html"><span class="tree-item-title">Abandoned Train Station</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/places-in-ceres/akinomori.html"><span class="tree-item-title">Akinomori</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                        <div class="tree-item mod-tree-file" data-depth="4">
+                          <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/places-in-ceres/herbstwald.html"><span class="tree-item-title">Herbstwald</span></a></div>
+                          <div class="tree-item-children"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/ceres.html"><span class="tree-item-title">Ceres</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/ceres-moon.html"><span class="tree-item-title">Ceres moon</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                    <div class="tree-item mod-tree-file" data-depth="3">
+                      <div class="tree-item-contents"><a class="tree-item-link" href="project/universe/sinesperia.html"><span class="tree-item-title">Sinesperia</span></a></div>
+                      <div class="tree-item-children"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tree-item mod-tree-file" data-depth="2">
+                  <div class="tree-item-contents"><a class="tree-item-link" href="project/project_index.html"><span class="tree-item-title">PROJECT_Index</span></a></div>
+                  <div class="tree-item-children"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="center-content">
-      <div class="markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings show-indentation-guide allow-fold-lists" style="tab-size: 4;">
-        <div>
-          <h1 id="Cola_caps">
-            <div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
-                <path d="M3 8L12 17L21 8"></path>
-              </svg></div>Cola caps
-          </h1>
-        </div>
-        <div class="markdown-preview-sizer markdown-preview-section" style="padding: unset; width: unset; height: unset; margin: unset; max-width: unset; min-height: unset;">
+    <div class="document-container">
+      <div class="markdown-preview-view markdown-rendered node-insert-event is-readable-line-width allow-fold-headings show-indentation-guide allow-fold-lists" tabindex="-1" style="tab-size: 4;">
+        <style id="MJX-CHTML-styles"></style>
+        <div class="markdown-preview-sizer markdown-preview-section" style="padding-bottom: ; padding-top: var(--file-margins); padding-right: var(--file-margins); padding-left: var(--file-margins); width: 100%; position: absolute;">
           <div class="markdown-preview-pusher" style="width: 1px; height: 0.1px; margin-bottom: 0px;"></div>
-          <div class="mod-header"></div>
+          <div class="mod-header">
+            <div class="inline-title" data-heading="Cola caps" id="Cola_caps" style="display: block;">Cola caps</div>
+          </div>
           <div>
             <p>Tags: <a href="#item" class="tag" target="_blank" rel="noopener">#item</a><br>
               In the game there will be a certain number of vending machines, each one of them has a different kind of cola inside that you can obtain. Once you get to a secret part of the game you can exchange the bottle caps for music tracks in a record player, these music tracks are meant for invited composers. These are not stored individually in the inventory because it would take a lot of space, they will appear in some kind of collectibles menu.</p>
           </div>
           <div>
-            <p><span alt="image17.png" src="image17.png" class="internal-embed media-embed image-embed is-loaded"><img alt="image17.png" src="app://3f40b7d8eae25111c6aeadece87cc00d5345/C:/Users/Marco/Documents/Drive%20Sync/Apfel%20Project/PROJECT/00Attachments/image17.png?1673727806292"></span></p>
+            <p><span alt="image17.png" src="image17.png" class="internal-embed media-embed image-embed is-loaded"><img alt="image17.png" src="project\00attachments\image17.png"></span></p>
           </div>
           <div class="mod-footer"></div>
         </div>
       </div>
     </div>
-    <div id="sidebar" class="sidebar-right">
+    <div class="sidebar-right sidebar">
       <div class="sidebar-content">
-        <div class="outline-container" data-size="0">
-          <div class="outline-header">
-            <h6 style="margin: 1em 1em 1em 0px;">Table of Contents</h6><button class="clickable-icon collapse-all"><iconify-icon icon="ph:arrows-in-line-horizontal-bold" width="18px" height="18px" rotate="90deg" color="currentColor"></iconify-icon></button>
-          </div>
-          <div class="outline-item" data-size="1"><a class="outline-item-contents internal-link" href="#Cola_caps">
-              <div class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
-                  <path d="M3 8L12 17L21 8"></path>
-                </svg></div><span class="outline-item-title">Cola caps</span>
-            </a>
-            <div class="outline-item-children"></div>
-          </div>
+        <div class="tree-container outline-tree" data-depth="0">
+          <div class="tree-header"><span class="sidebar-section-header">Table Of Contents</span><button class="clickable-icon collapse-tree-button"><iconify-icon icon="ph:arrows-in-line-horizontal-bold" width="18px" height="18px" rotate="90deg" color="currentColor"></iconify-icon></button></div>
+          <div class="tree-scroll-area"></div>
         </div>
       </div>
     </div>
